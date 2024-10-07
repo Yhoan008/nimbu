@@ -7,8 +7,7 @@ import Home from "./components/Home";
 export default function App() {
   return (
     <>
-      <NavBar />
-      <Home />
+      <Login />
     </>
   );
 }

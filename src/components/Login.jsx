@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import log from "./../assets/log.png";
 import sign from "./../assets/register.png";
@@ -88,6 +88,37 @@ function SignUp({ loginActive, setLoginActive }) {
 }
 
 function SignIn({ loginActive, setLoginActive }) {
+  const username = useRef();
+  const password = useRef();
+
+  const consult = async (event) => {
+    event.preventDefault();
+    const consultUser = {
+      username: username.current.value,
+      password: password.current.value,
+    };
+
+    try {
+      const response = await fetch("http://localhost:3178/consult", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(consultUser),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error con la solicitud");
+      }
+
+      const data = await response.json();
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div
       className="w-full h-full flex justify-between absolute transition-transform "
@@ -125,18 +156,23 @@ function SignIn({ loginActive, setLoginActive }) {
             name="InUser"
             placeholder="Username"
             className="px-2 w-[250px] bg-transparent outline-none "
+            ref={username}
           />
         </div>
         <div className=" flex h-7 bg-[#D9D9D9] py-4 px-8 box-content rounded-full ">
           <img src={lock} alt="" className="h-full opacity-50 " />
           <input
-            type="text"
+            type="password"
             name="InPass"
             placeholder="Password"
             className="px-2 w-[250px] bg-transparent outline-none "
+            ref={password}
           />
         </div>
-        <button className="px-8 py-2 bg-[#0CC9B0] text-white rounded-full mt-8 text-xl font-bold ">
+        <button
+          className="px-8 py-2 bg-[#0CC9B0] text-white rounded-full mt-8 text-xl font-bold "
+          onClick={consult}
+        >
           LOGIN
         </button>
       </form>
