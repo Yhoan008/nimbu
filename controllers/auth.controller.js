@@ -18,14 +18,26 @@ export const consult = async (req, res) => {
 };
 
 export const register = async (req, res) => {
-  const { username, email, password } = req.body;
+  let { username, email, password } = req.body;
+
+  //que pasa cuando el correo ya esta registado
 
   try {
-    const newUser = new User({ username, email, password });
-    await newUser.save();
-    res.send("El usuario has sido registrado");
+    const currentUser = await User.findOne({ username: username });
+
+    if (!currentUser) {
+      if (!email) {
+        res.json({ message: "El correo electronico es obligatorio" });
+      } else {
+        const newUser = new User({ username, email, password });
+        await newUser.save();
+        res.json({ message: "El usuario has sido registrado" });
+      }
+    } else {
+      res.json({ message: "Ya hay un usuario registrado" });
+    }
   } catch (error) {
-    res.send("No se ha podido registrar el usuario");
+    res.send(error);
   }
 };
 
