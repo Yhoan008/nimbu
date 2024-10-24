@@ -32,7 +32,7 @@ function Login() {
   const [active, setActive] = useState(false);
 
   return (
-    <div className="p-1 bg-[#1AD5BC] rounded-xl flex flex-col justify-start items-start absolute ">
+    <div className="p-1 bg-[#1AD5BC] rounded-xl flex flex-col justify-start items-start absolute z-20 ">
       <div className="flex">
         <div className="h-8 w-8 overflow-hidden rounded-full bg-white ">
           <img src={perfil} alt="Perfil Photo" className="h-full" />

@@ -48,7 +48,7 @@ function SignUp({ loginActive, setLoginActive }) {
     };
 
     try {
-      const response = await fetch("http://localhost:3178/register", {
+      const response = await fetch("http://localhost:5500/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -61,6 +61,7 @@ function SignUp({ loginActive, setLoginActive }) {
       }
 
       const data = await response.json();
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -161,7 +162,7 @@ function SignIn({ loginActive, setLoginActive }) {
     };
 
     try {
-      const response = await fetch("http://localhost:3178/consult", {
+      const response = await fetch("http://localhost:5500/consult", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

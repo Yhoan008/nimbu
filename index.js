@@ -4,7 +4,9 @@ import dotenv from "dotenv";
 import { connectDbs } from "./db.js";
 
 dotenv.config();
-const PORT = process.env.PORT || 5500;
+
+//El puerto siempre es mejor usarlo con una variable de entorno, aca usaremos un puerto fijo a modo de ejemplo
+const PORT = 5500;
 
 connectDbs();
 
