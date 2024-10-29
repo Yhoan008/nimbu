@@ -5,6 +5,7 @@ import perfil from "./../assets/port.png";
 import person from "./../assets/user.png";
 import tramo from "./../assets/tramo.png";
 import salida from "./../assets/salida.png";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
@@ -39,7 +40,20 @@ function Login() {
 }
 
 function MenuSign() {
-  return <div>iniciar sesion</div>;
+  return (
+    <div className="flex gap-5">
+      <Link to="/login">
+        <button className="font-bold text-lg px-4 py-3 rounded-xl">
+          LogIn
+        </button>
+      </Link>
+      <Link to="/login">
+        <button className="font-bold text-lg px-4 py-3 rounded-xl bg-[#1AD5BC] ">
+          SignIn
+        </button>
+      </Link>
+    </div>
+  );
 }
 
 function MenuLoged({ user, setUser }) {

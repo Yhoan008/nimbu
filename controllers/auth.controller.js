@@ -8,19 +8,17 @@ export const consult = async (req, res) => {
   try {
     const currentUser = await User.findOne({ username, password });
     if (!currentUser) {
-      res.status(200).json({ response: "User not found" });
+      res.status(500).json({ response: "User not found" });
     } else {
       res.status(200).json(currentUser);
     }
   } catch (error) {
-    res.send({ response: error });
+    res.status(500).json({ error: "Error en la solicitud" });
   }
 };
 
 export const register = async (req, res) => {
   let { username, email, password } = req.body;
-
-  //que pasa cuando el correo ya esta registado
 
   try {
     const currentUser = await User.findOne({ username: username });

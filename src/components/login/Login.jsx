@@ -72,8 +72,8 @@ export function Banner({ activeBanner, setActiveBanner, win, message }) {
 
   return (
     <div
-      className=" absolute left-[45%] bottom-16 m-auto px-5 py-4 rounded-2xl font-bold text-white "
-      style={{ backgroundColor: win ? "#15803d" : "#7f1d1d" }}
+      className=" absolute left-[45%] bottom-16 m-auto px-5 py-4 rounded-2xl font-bold text-whit "
+      style={{ backgroundColor: win ? "#15803d" : "#7f1d1d", display: "none" }}
       ref={banner}
     >
       {message}

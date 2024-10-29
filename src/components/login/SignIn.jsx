@@ -5,10 +5,13 @@ import user from "./../../assets/user.png";
 import lock from "./../../assets/lock.png";
 
 import { validateUsername, Banner } from "./Login";
+import { useNavigate } from "react-router-dom";
 
 export default function SignIn({ loginActive, setLoginActive }) {
   const username = useRef();
   const password = useRef();
+
+  const navigate = useNavigate();
 
   const [userName, setUsername] = useState("");
   const [pass, setPass] = useState("");
@@ -42,6 +45,7 @@ export default function SignIn({ loginActive, setLoginActive }) {
       const user = { name: data.username, email: data.email };
 
       localStorage.setItem("user", JSON.stringify(user));
+      navigate("/");
     } catch (error) {
       setActiveBanner(true);
       setWin(false);
