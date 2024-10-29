@@ -30,12 +30,15 @@ export default function ChooseUs() {
   ];
 
   return (
-    <div className=" flex justify-center items-center pt-10 flex-col ">
-      <div className=" w-[3000px] h-[3000px] bg-[#C2C2C2] absolute top-[130vh] -left-[50vw] rotate-[25deg] -z-10 rounded-[100px] " />
+    <div className=" flex justify-center items-center pt-10 flex-col mb-20 ">
+      <div className=" w-[2000px] h-[2000px] bg-[#C2C2C2] absolute top-[100vh] -left-[30vw] rotate-[25deg] -z-10 rounded-[100px] " />
       <h1 className="text-4xl font-bold ">WHY CHOOSE US? </h1>
-      <div className="flex mt-20 gap-28 ">
+      <div className="flex mt-20 gap-10 ">
         {globs.map((glob, index) => (
-          <div className=" flex flex-col justify-center items-center max-w-[200px] text-center group ">
+          <div
+            className=" flex flex-col justify-center items-center max-w-[200px] text-center group "
+            key={index}
+          >
             <div className="w-[150px] h-[150px] bg-black p-10 rounded-full group-hover:animate-bounce ">
               <img src={glob.photo} alt="Icon" />
             </div>

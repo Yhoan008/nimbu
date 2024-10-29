@@ -1,13 +1,12 @@
 import React from "react";
 
-import Login from "./components/Login";
-import NavBar from "./components/NavBar";
+import Login from "./components/login/Login";
 import Home from "./components/Home";
 
 export default function App() {
   return (
     <>
-      <Home />
+      <Login />
     </>
   );
 }
