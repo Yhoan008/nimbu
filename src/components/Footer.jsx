@@ -30,7 +30,7 @@ const images = [
 
 export default function Footer() {
   return (
-    <div className=" flex flex-col items-center ">
+    <div className=" flex flex-col items-center " id="curses">
       <div className=" flex self-start m-28 ">
         <h1 className=" font-extrabold text-4xl max-w-[300px] mr-10 ">
           OUR COURSES GALERY
@@ -53,10 +53,12 @@ export default function Footer() {
         ))}
       </div>
       <div className=" border-t-2 border-black mt-20 w-[90vw] flex flex-col items-center justify-center ">
-        <div className="h-12 flex items-center mt-10 ">
-          <img src={logo} alt="Logo" className="h-full" />
-          <h1 className=" text-3xl font-extrabold ">NIMBU</h1>
-        </div>
+        <a href="#home">
+          <div className="h-12 flex items-center mt-10 ">
+            <img src={logo} alt="Logo" className="h-full" />
+            <h1 className=" text-3xl font-extrabold ">NIMBU</h1>
+          </div>
+        </a>
         <h1 className=" text-xl font-normal mt-10 max-w-[500px] text-center ">
           Empowering people through English learning, unlocking new global
           opportunities.
@@ -93,6 +95,7 @@ function Cards({ inst }) {
         alt="img"
         className="w-full -z-10 "
         style={{ filter: hover ? "brightness(40%)" : "" }}
+        loading="lazy"
       />
       <div className="absolute p-3">
         <h1

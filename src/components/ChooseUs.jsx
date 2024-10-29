@@ -30,7 +30,7 @@ export default function ChooseUs() {
   ];
 
   return (
-    <div className=" flex justify-center items-center pt-10 flex-col mb-20 ">
+    <div className=" flex justify-center items-center pt-10 flex-col mb-20 " id="about" >
       <div className=" w-[2000px] h-[2000px] bg-[#C2C2C2] absolute top-[100vh] -left-[30vw] rotate-[25deg] -z-10 rounded-[100px] " />
       <h1 className="text-4xl font-bold ">WHY CHOOSE US? </h1>
       <div className="flex mt-20 gap-10 ">

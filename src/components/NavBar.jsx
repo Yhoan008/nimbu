@@ -9,17 +9,25 @@ import { Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
-    <div className="w-full p-4 ">
+    <div className="w-full p-4 " id="home">
       <div className="w-full flex justify-between items-center ">
         <div className="h-8 flex items-center ">
           <img src={logo} alt="Logo" className="h-full" />
           <h1 className=" text-3xl font-extrabold ">NIMBU</h1>
         </div>
         <ul className="flex ml-2 gap-5 font-bold ">
-          <li>HOME</li>
-          <li>ABOUT</li>
-          <li>CURSES</li>
-          <li>CONTACT</li>
+          <a href="#home">
+            <li className=" hover:underline cursor-pointer ">HOME</li>
+          </a>
+          <a href="#about">
+            <li className=" hover:underline cursor-pointer ">ABOUT</li>
+          </a>
+          <a href="#testimonis">
+            <li className=" hover:underline cursor-pointer ">TESTIMONIES</li>
+          </a>
+          <a href="#curses">
+            <li className=" hover:underline cursor-pointer ">CURSES</li>
+          </a>
         </ul>
         <div className="relative min-w-[300px] min-h-8 ">
           <Login />

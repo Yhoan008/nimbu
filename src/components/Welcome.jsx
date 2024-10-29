@@ -17,7 +17,9 @@ export default function Welcome() {
           Learning English has never been as easy and enjoyable as it is at
           NIMBU! We're here to help you improve your language skills.
         </p>
-        <button className=" bg-[#EF8D94] py-3 px-5 rounded-xl font-semibold ">LET’S GO</button>
+        <button className=" bg-[#EF8D94] py-3 px-5 rounded-xl font-semibold ">
+          LET’S GO
+        </button>
       </div>
       <div className="w-1/2 h-[80vh] flex justify-center items-center relative ">
         <div

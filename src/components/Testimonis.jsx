@@ -35,7 +35,10 @@ const test2 = [
 
 export default function Testimonis() {
   return (
-    <div className="w-full bg-[#E0662B] flex flex-col justify-center items-center pb-28 ">
+    <div
+      className="w-full bg-[#E0662B] flex flex-col justify-center items-center pb-28 "
+      id="testimonis"
+    >
       <div className=" w-1/2 bg-[#C2C2C2] rounded-lg relative -top-5 flex justify-center items-center pt-20 pb-28 mb-28 flex-col ">
         <div className=" flex p-3 relative bg-white rounded-full z-0 ">
           <Star />
