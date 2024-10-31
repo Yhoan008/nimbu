@@ -114,7 +114,6 @@ function MenuLoged({ user, setUser }) {
           <h1
             className=" font-bold text-md ml-2 hover:underline "
             onClick={() => {
-              localStorage.removeItem("user");
               setUser(null);
             }}
           >

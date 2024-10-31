@@ -27,6 +27,8 @@ export default function SignIn({ loginActive, setLoginActive }) {
       password: pass,
     };
 
+    // No tengo un server en mongo activo, por lo que se simula una base con localstorage temporalmente
+
     try {
       const response = await fetch("http://localhost:5500/consult", {
         method: "POST",
@@ -36,19 +38,34 @@ export default function SignIn({ loginActive, setLoginActive }) {
         body: JSON.stringify(consultUser),
       });
 
-      if (!response.ok) {
-        throw new Error("Error con la solicitud");
-      }
-
       const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
 
       const user = { name: data.username, email: data.email };
 
       localStorage.setItem("user", JSON.stringify(user));
       navigate("/");
     } catch (error) {
-      setActiveBanner(true);
-      setWin(false);
+      if (error.message === "Failed to fetch") {
+        console.log(
+          "No es posible conectar con el servidor, creando instancia local..."
+        );
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (user == undefined) {
+          setActiveBanner(true);
+          setWin(false);
+        } else {
+          if (user.name == userName && user.password == pass) {
+            navigate("/");
+          } else {
+            setActiveBanner(true);
+            setWin(false);
+          }
+        }
+      }
     }
   };
 

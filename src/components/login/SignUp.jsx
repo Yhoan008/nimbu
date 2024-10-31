@@ -24,7 +24,7 @@ export default function SignUp({ loginActive, setLoginActive }) {
   const register = async (event) => {
     event.preventDefault();
     const consultUser = {
-      username: userName,
+      name: userName,
       email: eMail,
       password: pass,
     };
@@ -38,7 +38,7 @@ export default function SignUp({ loginActive, setLoginActive }) {
         body: JSON.stringify(consultUser),
       });
       if (!response.ok) {
-        throw new Error("Error con la solicitud");
+        throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const data = await response.json();
       setWin(true);
@@ -48,8 +48,21 @@ export default function SignUp({ loginActive, setLoginActive }) {
       email.current.value = "";
       password.current.value = "";
     } catch (error) {
-      setWin(false);
-      setActiveBanner(true);
+      if (error.message === "Failed to fetch") {
+        console.error(
+          "No es posible conectar con el servidor, creando instancia local..."
+        );
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (user == undefined) {
+          localStorage.setItem("user", JSON.stringify(consultUser));
+
+          setActiveBanner(true);
+          setWin(true);
+        } else {
+          setActiveBanner(true);
+          setWin(false);
+        }
+      }
     }
   };
 
